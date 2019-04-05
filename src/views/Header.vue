@@ -26,11 +26,11 @@
     padding: 0 93px;
 
     &__opti-logo {
-      @include logo("../assets/header/opti-24-logo.svg");
+      @include logo("../assets/Header/opti-24-logo.svg");
       width: 93px;
     }
     &__gpn-logo {
-      @include logo("../assets/header/gpn-logo.svg");
+      @include logo("../assets/Header/gpn-logo.svg");
       width: 79px;
     }
   }

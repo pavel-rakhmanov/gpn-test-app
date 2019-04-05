@@ -1,5 +1,15 @@
 <template>
-  <div class="home">
-    <h1> Home page</h1>
+  <div class="home-page">
+    <poll-alert/>
   </div>
 </template>
+
+<script>
+  import PollAlert from '@/components/PollAlert'
+
+  export default {
+    components: {
+      PollAlert,
+    },
+  };
+</script>
