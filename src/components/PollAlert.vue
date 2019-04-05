@@ -12,10 +12,13 @@
         class="poll__close-btn"
       />
     </div>
+    <poll-modal v-if="isPollModalOpen" @close="closePollModal()" />
   </div>
 </template>
 
 <script>
+  import PollModal from '@/components/PollModal'
+
   const pollKeyInLocalStorage = 'qwerty' 
 
   export default {
@@ -24,7 +27,7 @@
         return JSON.parse(localStorage.getItem(pollKeyInLocalStorage));
       },
       set shouldDisplayPool(value) {
-        localStorage.setItem(pollKey, value);
+        localStorage.setItem(pollKeyInLocalStorage, value);
       },
       isPollModalOpen: false,
     }),
@@ -32,10 +35,16 @@
       openPollModal() {
         this.isPollModalOpen = true;
       },
+      closePollModal() {
+        this.isPollModalOpen = false;
+      },
       closePollAlert() {
         this.shouldDisplayPool = false;
       }
-    }
+    },
+    components: {
+      PollModal,
+    },
   }
 </script>
 
