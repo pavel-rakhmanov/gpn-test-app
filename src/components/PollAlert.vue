@@ -1,30 +1,32 @@
 <template>
-  <div v-if="shouldDisplayPool" class="poll">
+  <div v-if="shouldDisplayPool" class="poll flex-row justify-space-between">
     <div class="poll__text">
       Мы хотим стать лучше! Пожалуйста, пройдите опрос и оцените качество сервиса.
       <a @click="openPollModal()">
         Пройти опрос
       </a>
     </div>
-    <div @click="closePollAlert()">
+    <a @click="closePollAlert()">
       <img 
         src="@/assets/PollAlert/close.svg" 
         class="poll__close-btn"
       />
-    </div>
+    </a>
     <poll-modal v-if="isPollModalOpen" @close="closePollModal()" />
   </div>
 </template>
 
 <script>
-  import PollModal from '@/components/PollModal'
-
   const pollKeyInLocalStorage = 'qwerty' 
 
   export default {
     data: () => ({
       get shouldDisplayPool() {
-        return JSON.parse(localStorage.getItem(pollKeyInLocalStorage));
+        const localStorageValue = JSON.parse(
+          localStorage.getItem(pollKeyInLocalStorage)
+        );
+
+        return localStorageValue === null ? true : localStorageValue;
       },
       set shouldDisplayPool(value) {
         localStorage.setItem(pollKeyInLocalStorage, value);
@@ -43,7 +45,7 @@
       }
     },
     components: {
-      PollModal,
+      PollModal: () => import('@/components/PollModal'),
     },
   }
 </script>
@@ -54,10 +56,6 @@
   .poll {
     background-color: $green;
     padding: 6px 93px 5px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
     cursor: default;
 
     &__text {
@@ -65,12 +63,11 @@
       color: white;
 
       a {
-        cursor: pointer;
+        color: white;
         text-decoration: underline;
       }
     }
     &__close-btn {
-      cursor: pointer;
       width: 12px;
       height: 13px;
       object-fit: contain;
