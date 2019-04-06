@@ -3,7 +3,7 @@ export default {
     const response = {
       "success": true,
       "data": {
-        "label": "Оцените Вашу готовность рекомендовать «Газпромнефть-Корпоративные продажи» своим коллегам / партнерам?",
+        "label": "Оцените пожалуйста Вашу готовность рекомендовать «Газпромнефть-Корпоративные продажи» своим коллегам / партнерам?",
         "reasons": [
           {
             "id": 9,
@@ -61,6 +61,8 @@ export default {
       message,
     }
 
-    // post data here  
+    // post data here
+    alert('poll data was send');
+
   }
 }

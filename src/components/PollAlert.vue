@@ -12,7 +12,11 @@
         class="poll__close-btn"
       />
     </a>
-    <poll-modal v-if="isPollModalOpen" @close="closePollModal()" />
+    <poll-modal 
+      v-if="isPollModalOpen"
+      @close="closePollModal()"
+      @finish="closePollAlert()"
+    />
   </div>
 </template>
 
@@ -55,7 +59,8 @@
 
   .poll {
     background-color: $green;
-    padding: 6px 93px 5px;
+    padding: 0 93px;
+    height: 30px;
     cursor: default;
 
     &__text {
