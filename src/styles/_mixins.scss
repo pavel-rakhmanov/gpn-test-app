@@ -12,3 +12,9 @@
   font-stretch: normal;
   letter-spacing: normal;
 }
+
+@mixin background-image($asset-url) {
+  background-image: url($asset-url);
+  background-repeat: no-repeat;
+  object-fit: contain;
+}
