@@ -1,3 +1,16 @@
+@import '~@/styles/_colors.scss';
+@import '~@/styles/_mixins.scss';
+
+@font-face {
+  font-family: "PT Sans";
+  src: url("../../public/fonts/PT_Sans-Regular.ttf");
+}
+
+@font-face {
+  font-family: "PT Sans Narrow";
+  src: url("../../public/fonts/PT_Sans-Narrow.ttf");
+}
+
 body {
   margin: 0;
   padding: 0;
