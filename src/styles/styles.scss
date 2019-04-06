@@ -12,8 +12,33 @@
 }
 
 body {
+  @include regular-text;
+  
   margin: 0;
   padding: 0;
   height: 100vh;
-  font-family: 'PT Sans', sans-serif;
+}
+
+a {
+  @include narrow-text;
+  @include normal-text;
+
+  cursor: pointer;
+  color: $blue;
+}
+
+button {
+  @include narrow-text;
+  @include normal-text;
+
+  cursor: pointer;
+  padding: 11px 18px;
+  color: white;
+  border: none;
+  background-color: $blue;
+  font-size: 20px;
+
+  &:active {
+    outline: none;
+  }
 }

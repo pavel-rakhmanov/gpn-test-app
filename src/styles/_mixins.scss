@@ -1,0 +1,14 @@
+@mixin regular-text {
+  font-family: 'PT Sans';
+}
+
+@mixin narrow-text {
+  font-family: 'PT Sans Narrow';
+}
+
+@mixin normal-text {
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+}
