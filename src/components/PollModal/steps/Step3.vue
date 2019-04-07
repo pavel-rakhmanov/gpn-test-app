@@ -61,6 +61,7 @@
   @import '~@/styles/_colors.scss';
 
   p {
+    color: $text-color;
     margin-bottom: 25px;
   }
 

@@ -9,16 +9,9 @@
     <template slot="body">
       <b>{{ label }}</b>
 
-      <div>
-        <input 
-          style="font-size: 20px; margin: 15px 0;"
-          type="number"
-          min="0" 
-          max="10"
-          step="1" 
-          v-model="rate"
-        />
-      </div>
+      <rate-component
+        v-model="rate"
+      />
     </template>
 
     <template slot="footer">
@@ -36,6 +29,7 @@
 
 <script>
   import { ModalBody } from '@/components/Modal'
+  import RateComponent from '@/components/RateComponent'
 
   export default {
     props: {
@@ -61,6 +55,7 @@
     },
     components: {
       ModalBody,
+      RateComponent,
     },
   }
 </script>
