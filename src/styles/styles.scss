@@ -50,6 +50,29 @@ a, button, input {
   }
 }
 
+input[type=checkbox] {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  -ms-appearance: none !important;
+  -o-appearance: none !important;
+  appearance: none !important;
+
+  $size: 20px;
+
+  width: $size;
+  height: $size;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  border: 1px solid $grey-text;
+  border-radius: 3px;
+
+  &:checked {
+    border: none;
+    background-image: url(../assets/Controls/Input/checkbox-checked.jpg);
+  }
+}
+
 .flex-row {
   display: flex;
   flex-direction: row;

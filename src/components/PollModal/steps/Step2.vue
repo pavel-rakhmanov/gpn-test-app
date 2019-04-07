@@ -11,6 +11,7 @@
         <li 
           v-for="reason in reasons"
           :key="reason.id"
+          class="flex-row"
         >
           <input
             type="checkbox"
@@ -90,9 +91,21 @@
     margin-bottom: 27px;
   }
 
- ul {
-    list-style-type: none;
-    padding: 0;
-    margin-bottom: 48px;
- }
+  input {
+    margin: 0 9px 0 0;
+  }
+
+  label {
+    cursor: pointer;
+  }
+
+  ul {
+      list-style-type: none;
+      padding: 0;
+      margin-bottom: 48px;
+  }
+
+  li {
+    margin-bottom: 12px;
+  }
 </style>
