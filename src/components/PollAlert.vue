@@ -1,17 +1,22 @@
 <template>
-  <div v-if="shouldDisplayPool" class="poll">
+  <div v-if="shouldDisplayPool" class="poll flex-row justify-space-between">
     <div class="poll__text">
       Мы хотим стать лучше! Пожалуйста, пройдите опрос и оцените качество сервиса.
       <a @click="openPollModal()">
         Пройти опрос
       </a>
     </div>
-    <div @click="closePollAlert()">
+    <a @click="closePollAlert()">
       <img 
         src="@/assets/PollAlert/close.svg" 
         class="poll__close-btn"
       />
-    </div>
+    </a>
+    <poll-modal 
+      v-if="isPollModalOpen"
+      @close="closePollModal()"
+      @finish="closePollAlert()"
+    />
   </div>
 </template>
 
@@ -21,10 +26,14 @@
   export default {
     data: () => ({
       get shouldDisplayPool() {
-        return JSON.parse(localStorage.getItem(pollKeyInLocalStorage));
+        const localStorageValue = JSON.parse(
+          localStorage.getItem(pollKeyInLocalStorage)
+        );
+
+        return localStorageValue === null ? true : localStorageValue;
       },
       set shouldDisplayPool(value) {
-        localStorage.setItem(pollKey, value);
+        localStorage.setItem(pollKeyInLocalStorage, value);
       },
       isPollModalOpen: false,
     }),
@@ -32,10 +41,16 @@
       openPollModal() {
         this.isPollModalOpen = true;
       },
+      closePollModal() {
+        this.isPollModalOpen = false;
+      },
       closePollAlert() {
         this.shouldDisplayPool = false;
       }
-    }
+    },
+    components: {
+      PollModal: () => import('@/components/PollModal'),
+    },
   }
 </script>
 
@@ -44,24 +59,21 @@
 
   .poll {
     background-color: $green;
-    padding: 6px 93px 5px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    padding: 0 93px;
+    height: 30px;
     cursor: default;
 
     &__text {
-      font-size: 14px;
-      color: white;
+      &, & * {
+        font-size: 14px;
+        color: white;
+      }
 
       a {
-        cursor: pointer;
         text-decoration: underline;
       }
     }
     &__close-btn {
-      cursor: pointer;
       width: 12px;
       height: 13px;
       object-fit: contain;
