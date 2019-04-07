@@ -1,7 +1,7 @@
 <template>
   <modal-body :width="914">
     <template slot="header">
-      Багодарим за оценку!
+      Благодарим за оценку!
     </template>
 
     <template slot="body">
