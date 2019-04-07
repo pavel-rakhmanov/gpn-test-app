@@ -53,7 +53,7 @@ export default {
       resolve(response);
     })
   },
-  postPoll(rate, reasons, message, finish) {
+  postPoll(finish, rate, reasons, message) {
     const data = {
       finish,
       rate,
@@ -62,7 +62,5 @@ export default {
     }
 
     // post data here
-    alert('poll data was send');
-
   }
 }
