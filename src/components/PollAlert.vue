@@ -64,11 +64,12 @@
     cursor: default;
 
     &__text {
-      font-size: 14px;
-      color: white;
+      &, & * {
+        font-size: 14px;
+        color: white;
+      }
 
       a {
-        color: white;
         text-decoration: underline;
       }
     }

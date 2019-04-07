@@ -3,24 +3,23 @@
     <step1 
       v-if="pollStep === 1"
       :label="pollSource.label"
-      @sendPoll="sendPoll()"
-      @finish="finish()"
+      @setPollData="setPollData"
+      @hidePoll="hidePoll"
     />
     <step2 
       v-else-if="pollStep === 2"
       :reasons="pollSource.reasons"
-      @nextStep="nextStep()"
-      @close="close()"
+      @setPollData="setPollData"
+      @closePoll="closePoll"
     />
     <step3 
       v-else-if="pollStep === 3"
-      @sendPoll="sendPoll()"
-      @close="close()"
+      @setPollData="setPollData"
+      @closePoll="closePoll"
     />
     <step4 
       v-else-if="pollStep === 4"
-      @close="close()"
-      @finish="finish()"
+      @hidePoll="hidePoll"
     />
   </modal-base>
 </template>
@@ -43,7 +42,6 @@
         reasons: [],
       },
       pollData: {
-        finish: false,
         rate: undefined,
         reasons: [],
         message: '',
@@ -51,36 +49,34 @@
       pollStep: 1,
     }),
     methods: {
-      nextStep() {
-        this.pollStep += 1;
+      hidePoll() {
+        this.$emit('finish');
       },
-      close() {
-        this.$emit('close');
+      closePoll() {
+        this.hidePoll();
         this.sendPoll();
       },
-      sendPoll() {
-        const { pollData, pollStep } = this;
+      setPollData(dataObj) {
+        Object.keys(dataObj).forEach(key => {
+          this.pollData[key] = dataObj[key];
+        });
 
-        if(pollStep === 1) {
-          if(pollData.rate === 10) {
-            Api.postPoll();
-            this.finish();
-            return;
-          }
-          else {
-            this.nextStep();
-            return;
-          }
+        if(dataObj.rate && dataObj.rate === 10) {
+          this.pollStep = 3;
         }
-        else if(pollStep === 3) {
-          pollData.finish = true;
+        else {
+          this.pollStep += 1;
         }
 
-        Api.postPoll();
-        this.nextStep();
+        if(this.pollStep === 4) {
+          this.sendPoll();
+        }
       },
-      finish() {
-        this.$emit('finish');
+      sendPoll() {
+        const { rate, reasons, message } = this.pollData;
+        const finish = this.pollStep === 4;
+
+        Api.postPoll(finish, rate, reasons, message);
       },
     },
     async created() {

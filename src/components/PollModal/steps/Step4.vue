@@ -1,5 +1,5 @@
 <template>
-  <modal-body :width="914">
+  <modal-body :width="601">
     <template slot="header">
       <div class="title">
         Спасибо!
@@ -8,8 +8,7 @@
 
     <template slot="footer">
       <div class="flex-row justify-center">
-        <!-- // TODO: change to the 'finish' in the end! -->
-        <a @click="$emit('close')">
+        <a @click="hidePoll">
           Закрыть
         </a>
       </div>
@@ -24,6 +23,11 @@
     components: {
       ModalBody,
     },
+    methods: {
+      hidePoll() {
+        this.$emit('hidePoll');
+      },
+    },
   }
 </script>
 
@@ -31,7 +35,6 @@
   .title {
     text-align: center;
     margin-bottom: 13px;
-    width: 482px;
   }
 </style>
 

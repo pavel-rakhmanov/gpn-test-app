@@ -36,10 +36,16 @@ button {
   padding: 11px 18px;
   color: white;
   border: none;
+  border-radius: 3px;
   background-color: $blue;
-  font-size: 20px;
+}
 
-  &:active {
+a, button {
+  font-size: 20px;
+}
+
+a, button, input {
+  &:focus {
     outline: none;
   }
 }
