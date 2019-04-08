@@ -9,15 +9,15 @@
 </template>
 
 <script>
-  import AppHeader from '@/views/Header'
-  import AppFooter from '@/views/Footer'
+import AppHeader from '@/views/Header'
+import AppFooter from '@/views/Footer'
 
-  export default {
-    components: {
-      AppHeader,
-      AppFooter,
-    },
+export default {
+  components: {
+    AppHeader,
+    AppFooter
   }
+}
 </script>
 
 <style lang="scss" scoped>

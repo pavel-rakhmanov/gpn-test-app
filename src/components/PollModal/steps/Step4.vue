@@ -17,18 +17,18 @@
 </template>
 
 <script>
-  import { ModalBody } from '@/components/Modal'
+import { ModalBody } from '@/components/Modal'
 
-  export default {
-    components: {
-      ModalBody,
-    },
-    methods: {
-      hidePoll() {
-        this.$emit('hidePoll');
-      },
-    },
+export default {
+  components: {
+    ModalBody
+  },
+  methods: {
+    hidePoll () {
+      this.$emit('hidePoll')
+    }
   }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -37,4 +37,3 @@
     margin-bottom: 13px;
   }
 </style>
-

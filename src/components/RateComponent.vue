@@ -4,7 +4,7 @@
       Для оценки используйте 10-балльную шкалу, где 10 – точно готовы рекомендовать, 1 – точно не готовы рекомендовать.
     </p>
     <div class="flex-row rate-line">
-      <img 
+      <img
         class="dislike-fase"
         src="@/assets/Rate/dislike.png"
       />
@@ -16,7 +16,7 @@
               {{ n }}
             </b>
 
-            <button 
+            <button
               class="rate-button"
               :class="{
                 'rate-button--selected': n <= rate,
@@ -27,7 +27,7 @@
         </template>
       </div>
 
-      <img 
+      <img
         class="like-fase"
         src="@/assets/Rate/like.png"
       />
@@ -40,32 +40,32 @@ export default {
   props: {
     value: {
       type: Number,
-      required: true,
+      required: true
     },
     from: {
       type: Number,
-      default: 0,
+      default: 0
     },
     to: {
       type: Number,
-      default: 10,
-    },
+      default: 10
+    }
   },
-  data() {
+  data () {
     return {
-      rate: this.value,
-    };
+      rate: this.value
+    }
   },
   computed: {
-    length() {
-      return this.to - this.from;
-    },
+    length () {
+      return this.to - this.from
+    }
   },
   methods: {
-    setValue(newValue) {
-      this.rate = newValue;
-      this.$emit('input', newValue);
-    },
+    setValue (newValue) {
+      this.rate = newValue
+      this.$emit('input', newValue)
+    }
   }
 }
 </script>
@@ -145,4 +145,3 @@ export default {
     margin-left: 35px;
   }
 </style>
-

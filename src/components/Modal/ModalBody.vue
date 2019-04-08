@@ -1,5 +1,5 @@
 <template>
-  <div 
+  <div
     class="modal-container"
     :style="modalWidth"
   >
@@ -28,22 +28,21 @@ export default {
     }
   },
   computed: {
-    modalWidth() {
-      let { width } = this;
+    modalWidth () {
+      let { width } = this
 
-      if(typeof width === 'string') {
-        const isContainUnits = ['vw', 'px', '%'].some(unut => width.indexOf(unut) > -1);
-        if(!isContainUnits) {
-          width = `${ width }px`;
+      if (typeof width === 'string') {
+        const isContainUnits = ['vw', 'px', '%'].some(unut => width.indexOf(unut) > -1)
+        if (!isContainUnits) {
+          width = `${width}px`
         }
-      }
-      else if (typeof width === 'number') {
-        width = `${ width }px`;
+      } else if (typeof width === 'number') {
+        width = `${width}px`
       }
       return {
-        'width' : width,
-        'max-width': width,
-      };
+        'width': width,
+        'max-width': width
+      }
     }
   }
 }
