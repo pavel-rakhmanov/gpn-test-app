@@ -7,13 +7,13 @@
 </template>
 
 <script>
-import ModalBase from './ModalBase';
-import ModalBody from './ModalBody';
+import ModalBase from './ModalBase'
+import ModalBody from './ModalBody'
 
 export default {
   components: {
     ModalBase,
-    ModalBody,
-  },
-};
+    ModalBody
+  }
+}
 </script>

@@ -33,28 +33,28 @@
 </template>
 
 <script>
-  import { ModalBody } from '@/components/Modal'
+import { ModalBody } from '@/components/Modal'
 
-  export default {
-    data: () => ({
-      message: '',
-    }),
-    methods: {
-      estimate() {
-        const data = {
-          message: this.message,
-        };
-        
-        this.$emit('setPollData', data);
-      },
-      closePoll() {
-        this.$emit('closePoll');
-      },
+export default {
+  data: () => ({
+    message: ''
+  }),
+  methods: {
+    estimate () {
+      const data = {
+        message: this.message
+      }
+
+      this.$emit('setPollData', data)
     },
-    components: {
-      ModalBody,
-    },
+    closePoll () {
+      this.$emit('closePoll')
+    }
+  },
+  components: {
+    ModalBody
   }
+}
 </script>
 
 <style lang="scss" scoped>

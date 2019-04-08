@@ -5,11 +5,11 @@
 </template>
 
 <script>
-  import PollAlert from '@/components/PollAlert'
+import PollAlert from '@/components/PollAlert'
 
-  export default {
-    components: {
-      PollAlert,
-    },
-  };
+export default {
+  components: {
+    PollAlert
+  }
+}
 </script>

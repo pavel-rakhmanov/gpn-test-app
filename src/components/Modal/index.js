@@ -1,9 +1,9 @@
-import ModalBase from './ModalBase';
-import ModalBody from './ModalBody';
-import Modal from './Modal';
+import ModalBase from './ModalBase'
+import ModalBody from './ModalBody'
+import Modal from './Modal'
 
-export default Modal;
+export default Modal
 export {
   ModalBase,
-  ModalBody,
-};
+  ModalBody
+}

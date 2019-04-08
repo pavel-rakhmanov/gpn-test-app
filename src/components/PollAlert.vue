@@ -7,12 +7,12 @@
       </a>
     </div>
     <a @click="closePollAlert()">
-      <img 
-        src="@/assets/PollAlert/close.svg" 
+      <img
+        src="@/assets/PollAlert/close.svg"
         class="poll__close-btn"
       />
     </a>
-    <poll-modal 
+    <poll-modal
       v-if="isPollModalOpen"
       @close="closePollModal()"
       @finish="closePollAlert()"
@@ -21,37 +21,37 @@
 </template>
 
 <script>
-  const pollKeyInLocalStorage = 'qwerty' 
+const pollKeyInLocalStorage = 'qwerty'
 
-  export default {
-    data: () => ({
-      get shouldDisplayPool() {
-        const localStorageValue = JSON.parse(
-          localStorage.getItem(pollKeyInLocalStorage)
-        );
+export default {
+  data: () => ({
+    get shouldDisplayPool () {
+      const localStorageValue = JSON.parse(
+        localStorage.getItem(pollKeyInLocalStorage)
+      )
 
-        return localStorageValue === null ? true : localStorageValue;
-      },
-      set shouldDisplayPool(value) {
-        localStorage.setItem(pollKeyInLocalStorage, value);
-      },
-      isPollModalOpen: false,
-    }),
-    methods: {
-      openPollModal() {
-        this.isPollModalOpen = true;
-      },
-      closePollModal() {
-        this.isPollModalOpen = false;
-      },
-      closePollAlert() {
-        this.shouldDisplayPool = false;
-      }
+      return localStorageValue === null ? true : localStorageValue
     },
-    components: {
-      PollModal: () => import('@/components/PollModal'),
+    set shouldDisplayPool (value) {
+      localStorage.setItem(pollKeyInLocalStorage, value)
     },
+    isPollModalOpen: false
+  }),
+  methods: {
+    openPollModal () {
+      this.isPollModalOpen = true
+    },
+    closePollModal () {
+      this.isPollModalOpen = false
+    },
+    closePollAlert () {
+      this.shouldDisplayPool = false
+    }
+  },
+  components: {
+    PollModal: () => import('@/components/PollModal')
   }
+}
 </script>
 
 <style lang="scss" scoped>

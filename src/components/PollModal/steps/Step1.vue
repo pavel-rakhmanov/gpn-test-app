@@ -28,34 +28,34 @@
 </template>
 
 <script>
-  import { ModalBody } from '@/components/Modal'
-  import RateComponent from '@/components/RateComponent'
+import { ModalBody } from '@/components/Modal'
+import RateComponent from '@/components/RateComponent'
 
-  export default {
-    props: {
-      label: {
-        type: String,
-        required: true,
-      },
+export default {
+  props: {
+    label: {
+      type: String,
+      required: true
+    }
+  },
+  data: () => ({
+    rate: 10
+  }),
+  methods: {
+    estimate () {
+      const data = {
+        rate: parseInt(this.rate)
+      }
+
+      this.$emit('setPollData', data)
     },
-    data: () => ({
-      rate: 10,
-    }),
-    methods: {
-      estimate() {
-        const data = {
-          rate: parseInt(this.rate),
-        };
-        
-        this.$emit('setPollData', data);
-      },
-      hidePoll() {
-        this.$emit('hidePoll');
-      },
-    },
-    components: {
-      ModalBody,
-      RateComponent,
-    },
+    hidePoll () {
+      this.$emit('hidePoll')
+    }
+  },
+  components: {
+    ModalBody,
+    RateComponent
   }
+}
 </script>

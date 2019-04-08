@@ -8,7 +8,7 @@
       <p>Выберите не более 3-х ключевых причин.</p>
 
       <ul>
-        <li 
+        <li
           v-for="reason in reasons"
           :key="reason.id"
           class="flex-row"
@@ -40,50 +40,49 @@
 </template>
 
 <script>
-  import { ModalBody } from '@/components/Modal'
+import { ModalBody } from '@/components/Modal'
 
-  const maxReasonsCount = 3;
+const maxReasonsCount = 3
 
-  export default {
-    props: {
-      reasons: {
-        type: Array,
-        required: true,
-        valdator: reasons => reasons.length > 0,
-      },
-    },
-    data: () => ({
-      selectedReasons: [],
-    }),
-    methods: {
-      selectReason(id) {
-        const reasonIndex = this.selectedReasons.indexOf(id);
+export default {
+  props: {
+    reasons: {
+      type: Array,
+      required: true,
+      valdator: reasons => reasons.length > 0
+    }
+  },
+  data: () => ({
+    selectedReasons: []
+  }),
+  methods: {
+    selectReason (id) {
+      const reasonIndex = this.selectedReasons.indexOf(id)
 
-        if(reasonIndex > -1) {
-          this.selectedReasons.splice(reasonIndex, 1);
-          return
-        }
-        else if(this.selectedReasons.length >= maxReasonsCount - 1) {
-          this.selectedReasons = this.selectedReasons.slice(0, maxReasonsCount - 1);
-        }
-
-        this.selectedReasons.push(id);
-      },
-      estimate() {
-        const data = {
-          reasons: this.selectedReasons,
-        };
-        
-        this.$emit('setPollData', data);
-      },
-      closePoll() {
-        this.$emit('closePoll');
+      if (reasonIndex > -1) {
+        this.selectedReasons.splice(reasonIndex, 1)
+        return
+      } else if (this.selectedReasons.length >= maxReasonsCount - 1) {
+        this.selectedReasons = this.selectedReasons.slice(0, maxReasonsCount - 1)
       }
+
+      this.selectedReasons.push(id)
     },
-    components: {
-      ModalBody,
+    estimate () {
+      const data = {
+        reasons: this.selectedReasons
+      }
+
+      this.$emit('setPollData', data)
     },
+    closePoll () {
+      this.$emit('closePoll')
+    }
+  },
+  components: {
+    ModalBody
   }
+}
 </script>
 
 <style lang="scss" scoped>
