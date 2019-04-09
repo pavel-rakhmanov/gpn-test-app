@@ -1,0 +1,98 @@
+@import '~@/styles/_colors.scss';
+@import '~@/styles/_mixins.scss';
+
+@font-face {
+  font-family: "PT Sans";
+  src: url("../../public/fonts/PT_Sans-Regular.ttf");
+}
+
+@font-face {
+  font-family: "PT Sans Narrow";
+  src: url("../../public/fonts/PT_Sans-Narrow.ttf");
+}
+
+body {
+  @include regular-text;
+  
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+a {
+  @include narrow-text;
+  @include normal-text;
+
+  cursor: pointer;
+  color: $blue;
+  padding: 2px;
+}
+
+button {
+  @include narrow-text;
+  @include normal-text;
+
+  cursor: pointer;
+  padding: 11px 18px;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  background-color: $blue;
+}
+
+a, button {
+  font-size: 20px;
+}
+
+a, button, input {
+  &:focus {
+    outline: none;
+  }
+}
+
+input[type=checkbox] {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  -ms-appearance: none !important;
+  -o-appearance: none !important;
+  appearance: none !important;
+
+  $size: 20px;
+
+  width: $size;
+  height: $size;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  border: 1px solid $grey-text;
+  border-radius: 3px;
+
+  &:checked {
+    border: none;
+    background-image: url(../assets/Controls/Input/checkbox-checked.jpg);
+  }
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: end;
+}
